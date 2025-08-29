@@ -7,8 +7,6 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -yq install \
     sudo \
     openssh-server \
     python2 \
-    python3-pip \
-    python3-virtualenv \
     dialog \
     firefox-esr \
     inetutils-ping \
@@ -32,14 +30,10 @@ RUN apt-get -y autoremove && \
     sed -i "s/off/remote/g" /usr/share/novnc/app/ui.js && \
     echo "kali ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers && \
     mkdir /run/dbus && \
-    ln -s /usr/bin/python3 /usr/bin/python && \
     touch /usr/share/novnc/index.htm
 COPY startup.sh /startup.sh
 USER kali
 WORKDIR /home/kali
-RUN mkdir -p /home/kali/.config && \
-    virtualenv /home/kali/.config/app && \
-    echo "source /home/kali/.config/app/bin/activate" >> /home/kali/.bashrc
 ENV PASSWORD=kalilinux
 ENV SHELL=/bin/bash
 EXPOSE 8080
