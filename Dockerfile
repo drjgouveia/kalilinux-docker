@@ -34,7 +34,6 @@ RUN apt-get -y autoremove && \
 COPY startup.sh /startup.sh
 USER kali
 WORKDIR /home/kali
-ENV PASSWORD=kalilinux
+ENV PASSWORD=kali1234
 ENV SHELL=/bin/bash
-EXPOSE 8080
 ENTRYPOINT ["/bin/bash", "/startup.sh"]

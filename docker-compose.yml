@@ -8,11 +8,9 @@ services:
     restart: always
     cap_add:
       - NET_ADMIN
-    ports:
-      - ${BIND:-0.0.0.0:9999}:8080
     environment:
       - SHELL=/bin/bash
-      - PASSWORD=${PASSWORD:-K@liGouveia}
+      - PASSWORD=${PASSWORD:-kali1234}
     volumes:
       - data:/home/kali/Desktop
     entrypoint: ["/bin/bash", "/startup.sh"]
